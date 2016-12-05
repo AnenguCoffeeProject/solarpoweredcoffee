@@ -8,18 +8,36 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  transition: 0.6s ease;
   ul {
+    display: none;
     li {
-      display: inline-block;
+      display: block;
       a {
-        padding: 0.333rem 1rem;
+        display: inline-block;
+        padding: 1rem;
         text-decoration: none;
       }
       &:last-child {
         a {
           border: 1px solid #fff;
           border-radius: 6px;
-          margin-left: 1rem;
+          margin-top: 1rem;
+        }
+      }
+    }
+    @include for-tablet-landscape-up {
+      display: block;
+      li {
+        display: inline-block;
+        a {
+          padding: 0.333rem 1rem;
+        }
+        &:last-child {
+          a {
+            margin-top: 0;
+            margin-left: 1rem;
+          }
         }
       }
     }
@@ -31,5 +49,26 @@ header {
   a.brand {
     font-family: "Sandman_Fill", $headings-font-family;
     font-size: 2rem;
+  }
+  button {
+    display: block;
+    @include for-tablet-landscape-up {
+      display: none;
+    }
+  }
+}
+.header-white {
+  background: #fff;
+  box-shadow: 0px 1px 8px rgba(0,0,0,0.2);
+  ul {
+    li:last-child {
+      a {
+        border-color: $brand-color;
+      }
+    }
+  }
+  a {
+    color: $brand-color;
+    text-shadow: none;
   }
 }

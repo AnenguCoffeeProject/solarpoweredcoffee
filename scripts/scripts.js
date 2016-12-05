@@ -12,4 +12,22 @@ $(document).ready(function (){
     return false;
   });
 
+  // Toggle header on scroll
+  var offset = $("#hero").outerHeight() - $("header").outerHeight();
+  $( window ).resize(function() {
+    offset = $("#hero").outerHeight() - $("header").outerHeight();
+  });
+  $(window).scroll(function(){
+    var scroll = $(window).scrollTop();
+    if (scroll > offset) {
+      $("header").addClass("header-white");
+    } else {
+      $("header").removeClass("header-white");
+    }
+  });
+
+  $('.menu').click(function(){
+    $('nav ul').fadeToggle('slow');
+  });
+
 });
